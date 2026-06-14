@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YHack '26 — Code. Build. Disrupt. | IEEE RAS KPRIET</title>
+  <meta name="description"
+    content="YHack 2026 is the premier technical hackathon by IEEE RAS KPRIET. Where curious minds collide, problems are solved, and innovation becomes impact.">
+  <meta name="theme-color" content="#080808">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- LOADING SCREEN -->
+  <div class="loader" id="loader">
+    <div class="loader-text" id="loader-text">
+      <span>Y</span><span>H</span><span>a</span><span>c</span><span>k</span>
+    </div>
+    <div class="loader-line">
+      <div class="loader-line-inner" id="loader-line"></div>
+    </div>
+    <div class="loader-counter" id="loader-counter">000</div>
+  </div>
+
+  <!-- OVERLAYS -->
+  <div class="grain-overlay"></div>
+  <div class="scanlines"></div>
+  <div class="bg-grid"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- ============================================
+       NAVIGATION
+       ============================================ -->
+  <nav class="nav" id="nav">
+    <a href="#" class="nav-logo">YHack<span class="year-tag">'26</span></a>
+    <ul class="nav-links">
+      <li><a href="#hero" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#timeline">Schedule</a></li>
+      <li><a href="#details">Details</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="register.html" class="nav-cta">Register Now <span class="arrow">↗</span></a>
+  </nav>
+
+  <!-- ============================================
+       HERO SECTION
+       ============================================ -->
+  <section class="hero" id="hero">
+    <div class="vertical-text left">YHACK 2026</div>
+    <div class="vertical-text right">
+      <span>INNOVATE</span><span>COLLABORATE</span><span>COMPETE</span><span>INSPIRE</span>
+    </div>
+    <div class="coord-marker" style="top: 15%; left: 48%;">10.9047° N, 78.6856° E</div>
+    <div class="coord-marker" style="bottom: 12%; right: 8%;">NODE_0x7F2A</div>
+    <div class="num-label" style="top: 20%; right: 15%;">001 / 006</div>
+    <div class="num-label" style="bottom: 25%; left: 45%;">Δ 47.2%</div>
+    <div class="num-label" style="top: 50%; right: 4%;">2026.08.15</div>
+
+    <div class="geo-float" style="top: 15%; right: 25%;">
+      <div class="geo-circle"></div>
+    </div>
+    <div class="geo-float" style="bottom: 20%; right: 35%;">
+      <div class="geo-diamond"></div>
+    </div>
+    <div class="geo-float" style="top: 35%; left: 42%;">
+      <div class="geo-cross"></div>
+    </div>
+    <div class="geo-float" style="bottom: 35%; left: 48%;">
+      <div class="geo-triangle"></div>
+    </div>
+    <div class="geo-float" style="top: 60%; right: 10%;">
+      <div class="geo-circle filled" style="width:40px;height:40px;"></div>
+    </div>
+
+    <div class="float-symbol" style="top: 22%; right: 42%;">⬡</div>
+    <div class="float-symbol" style="top: 70%; right: 18%;">◈</div>
+    <div class="float-symbol" style="bottom: 15%; left: 35%;">⊕</div>
+    <div class="float-symbol" style="top: 45%; left: 5%;">△</div>
+
+    <div class="tech-marker" style="top: 10%; right: 5%;">
+      <div class="corner tl"></div>
+    </div>
+    <div class="tech-marker" style="bottom: 10%; right: 32%;"><span class="bracket">{ SYS_INIT }</span></div>
+    <div class="tech-marker" style="top: 80%; left: 2%;">
+      <div class="globe-icon"></div>
+    </div>
+    <div class="tech-marker" style="bottom: 5%; right: 5%;">
+      <div class="barcode" id="barcode"></div>
+    </div>
+
+    <div class="hero-left">
+      <div class="hero-tag">
+        <span class="dot"></span>
+        TECHNICAL EVENT
+        <span class="year-badge">2026</span>
+      </div>
+      <h1 class="hero-headline" id="hero-headline">
+        <span class="line"><span class="line-inner">CODE.</span></span>
+        <span class="line"><span class="line-inner">BUILD.</span></span>
+        <span class="line"><span class="line-inner scribble-line"><span class="accent">DISRUPT.</span></span></span>
+      </h1>
+      <p class="hero-subline" id="hero-subline">
+        <span class="code-tag">&lt;</span> Where curious minds collide, problems are solved and innovation becomes
+        impact. <span class="code-tag">/&gt;</span>
+      </p>
+      <div class="hero-cta-group" id="hero-cta">
+        <a href="register.html" class="btn-primary" id="btn-register">
+          <span>Register Now</span><span class="arrow">↗</span>
+        </a>
+        <a href="#events" class="btn-secondary">Scroll to Explore <span>↗</span></a>
+      </div>
+      <div class="coming-soon-tag" id="coming-soon">
+        <span class="dash"></span> COMING SOON
+      </div>
+      <div class="scroll-indicator" id="scroll-ind">
+        <span>↓</span><span class="scroll-line"></span><span>Scroll Down</span>
+      </div>
+    </div>
+
+    <div class="hero-right" id="hero-right">
+      <div class="hero-artwork-container" id="artwork-container">
+        <img src="assets/hero-artwork.png" alt="YHack 2026 — Code. Build. Disrupt." class="hero-artwork"
+          id="hero-artwork">
+        <div class="artwork-slash"></div>
+        <div class="artwork-slash"></div>
+        <div class="artwork-halftone"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TORN EDGE -->
+  <div class="torn-edge cream"></div>
+
+  <!-- ============================================
+       WHAT IS YHACK
+       ============================================ -->
+  <section class="section-cream" id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-title-block">
+          <div class="section-suptitle">What is</div>
+          <h2 class="about-title"><span class="red scribble">YHack</span>?</h2>
+          <p class="about-desc">
+            YHack is the annual technical event by IEEE RAS KPRIET that brings together the brightest minds to build,
+            break, learn and lead the change. Open to all domains — engineering, design, research, and beyond.
+          </p>
+        </div>
+        <div class="about-cards">
+          <div class="about-card">
+            <div class="card-icon"><svg viewBox="0 0 36 36">
+                <circle cx="12" cy="14" r="5" />
+                <circle cx="24" cy="14" r="5" />
+                <path d="M6 30c0-6 4-10 12-10s12 4 12 10" />
+              </svg></div>
+            <div class="card-title">Collaborate</div>
+            <div class="card-desc">Team up. Brainstorm. Build together.</div>
+            <span class="card-arrow">↗</span>
+          </div>
+          <div class="about-card">
+            <div class="card-icon"><svg viewBox="0 0 36 36">
+                <path d="M18 4l4 10h10l-8 6 3 10-9-7-9 7 3-10-8-6h10z" />
+              </svg></div>
+            <div class="card-title">Innovate</div>
+            <div class="card-desc">Solve real-world problems with tech.</div>
+            <span class="card-arrow">↗</span>
+          </div>
+          <div class="about-card">
+            <div class="card-icon"><svg viewBox="0 0 36 36">
+                <path d="M18 4v12l8 6-3 10H13l-3-10 8-6z" />
+                <circle cx="18" cy="8" r="3" />
+              </svg></div>
+            <div class="card-title">Compete</div>
+            <div class="card-desc">Challenge yourself and win big.</div>
+            <span class="card-arrow">↗</span>
+          </div>
+          <div class="about-card">
+            <div class="card-icon"><svg viewBox="0 0 36 36">
+                <circle cx="18" cy="18" r="12" />
+                <path d="M18 6v12l8 6" />
+                <circle cx="18" cy="18" r="3" />
+              </svg></div>
+            <div class="card-title">Inspire</div>
+            <div class="card-desc">Learn, connect and get inspired.</div>
+            <span class="card-arrow">↗</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TORN EDGE -->
+  <div class="torn-edge"></div>
+
+  <!-- ============================================
+       ABOUT THE DEPARTMENT & IEEE RAS
+       ============================================ -->
+  <section class="section-dark" id="ieee-ras">
+    <div class="section-inner">
+      <div class="section-header">
+        <div>
+          <div class="section-suptitle">The Force Behind</div>
+          <h2 class="section-title">OUR CHAPTERS</h2>
+        </div>
+      </div>
+      <div class="ieee-grid">
+        <div class="ieee-card">
+          <div class="ieee-card-num">01</div>
+          <h3 class="ieee-card-title">About the Department</h3>
+          <p class="ieee-card-desc">
+            The Department at KPR Institute of Engineering and Technology fosters a culture of technical excellence and
+            innovation. With state-of-the-art labs, industry partnerships, and a vibrant student community, our
+            department is the breeding ground for next-generation engineers and creators.
+          </p>
+        </div>
+        <div class="ieee-card">
+          <div class="ieee-card-num">02</div>
+          <h3 class="ieee-card-title">About IEEE RAS</h3>
+          <p class="ieee-card-desc">
+            The IEEE Robotics and Automation Society (RAS) Student Chapter at KPRIET is dedicated to advancing
+            innovation in robotics, automation, and intelligent systems. We organize workshops, hackathons, and
+            technical events that empower students to push boundaries and build impactful solutions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       EVENT PERKS
+       ============================================ -->
+  <section class="section-dark" id="perks" style="padding-top: 0;">
+    <div class="section-inner">
+      <div class="section-header">
+        <div>
+          <div class="section-suptitle">Why Participate</div>
+          <h2 class="section-title">WHAT YOU GET</h2>
+        </div>
+      </div>
+      <div class="perks-grid">
+        <div class="perk-card">
+          <span class="perk-icon">💰</span>
+          <div class="perk-title">Cash Prizes</div>
+          <div class="perk-desc">Compete for exciting cash prizes across multiple event categories. Winners take home
+            more than just glory.</div>
+        </div>
+        <div class="perk-card">
+          <span class="perk-icon">🎓</span>
+          <div class="perk-title">Internship Opportunities</div>
+          <div class="perk-desc">Top performers get fast-tracked internship offers from our industry partners and
+            sponsors.</div>
+        </div>
+        <div class="perk-card">
+          <span class="perk-icon">🎁</span>
+          <div class="perk-title">Goodies & Swag</div>
+          <div class="perk-desc">Exclusive YHack merchandise, tech goodies, and surprise swag packs for all
+            participants.</div>
+        </div>
+        <div class="perk-card">
+          <span class="perk-icon">📜</span>
+          <div class="perk-title">Certificates</div>
+          <div class="perk-desc">Official IEEE-backed certificates of participation and achievement for all attendees.
+          </div>
+        </div>
+        <div class="perk-card">
+          <span class="perk-icon">⚡</span>
+          <div class="perk-title">Professional IEEE Event</div>
+          <div class="perk-desc">A professionally conducted event under the IEEE banner — recognized nationally and
+            globally.</div>
+        </div>
+        <div class="perk-card">
+          <span class="perk-icon">🎉</span>
+          <div class="perk-title">Exciting Surprises</div>
+          <div class="perk-desc">Join to unlock exclusive surprises — special guests, bonus challenges, and more
+            revealed at the event!</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       EVENTS
+       ============================================ -->
+  <section class="section-dark" id="events" style="padding-top: 0;">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2 class="section-title">EVENTS</h2>
+        <a href="#" class="section-link">View All Events <span>↗</span></a>
+      </div>
+      <div class="events-grid">
+        <div class="event-card">
+          <div class="event-num">01</div>
+          <div class="event-icon"><svg viewBox="0 0 28 28">
+              <path d="M8 4v20M20 4v20M4 14h20" />
+              <circle cx="14" cy="14" r="3" />
+            </svg></div>
+          <div class="event-name">Code Storm</div>
+          <div class="event-type">Hackathon</div>
+          <span class="event-arrow">↗</span>
+        </div>
+        <div class="event-card">
+          <div class="event-num">02</div>
+          <div class="event-icon"><svg viewBox="0 0 28 28">
+              <rect x="6" y="8" width="16" height="14" rx="2" />
+              <circle cx="11" cy="15" r="2" />
+              <circle cx="17" cy="15" r="2" />
+              <path d="M10 8V5M18 8V5" />
+            </svg></div>
+          <div class="event-name">Robo Arena</div>
+          <div class="event-type">Robotics</div>
+          <span class="event-arrow">↗</span>
+        </div>
+        <div class="event-card">
+          <div class="event-num">03</div>
+          <div class="event-icon"><svg viewBox="0 0 28 28">
+              <circle cx="14" cy="14" r="10" />
+              <path d="M14 9v5l4 3" />
+            </svg></div>
+          <div class="event-name">Tech Quiz</div>
+          <div class="event-type">Quiz</div>
+          <span class="event-arrow">↗</span>
+        </div>
+        <div class="event-card">
+          <div class="event-num">04</div>
+          <div class="event-icon"><svg viewBox="0 0 28 28">
+              <rect x="4" y="10" width="20" height="12" rx="1" />
+              <path d="M8 10V6h12v4" />
+              <circle cx="14" cy="16" r="3" />
+            </svg></div>
+          <div class="event-name">Circuit Clash</div>
+          <div class="event-type">Electronics</div>
+          <span class="event-arrow">↗</span>
+        </div>
+        <div class="event-card">
+          <div class="event-num">05</div>
+          <div class="event-icon"><svg viewBox="0 0 28 28">
+              <rect x="6" y="4" width="16" height="20" rx="1" />
+              <path d="M10 9h8M10 13h8M10 17h5" />
+            </svg></div>
+          <div class="event-name">Paper Presentation</div>
+          <div class="event-type">Research</div>
+          <span class="event-arrow">↗</span>
+        </div>
+        <div class="event-card">
+          <div class="event-num">06</div>
+          <div class="event-icon"><svg viewBox="0 0 28 28">
+              <path d="M4 24L14 4l10 20H4z" />
+              <path d="M14 10v7M14 20v1" />
+            </svg></div>
+          <div class="event-name">UI/UX Challenge</div>
+          <div class="event-type">Design</div>
+          <span class="event-arrow">↗</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       TIMELINE / SCHEDULE
+       ============================================ -->
+  <section class="section-dark" id="timeline" style="padding-top: 0;">
+    <div class="section-inner">
+      <div class="section-header">
+        <div>
+          <div class="section-suptitle">Mark Your Calendar</div>
+          <h2 class="section-title">TIMELINE</h2>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px;">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">July 15, 2026</div>
+            <div class="timeline-title">Registration Opens</div>
+            <div class="timeline-desc">Registrations go live. Form your teams (3 members max) and sign up on the portal.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">August 01, 2026</div>
+            <div class="timeline-title">Problem Statements Released</div>
+            <div class="timeline-desc">Domain-wise problem statements are published. Start ideating and preparing your
+              solutions.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">August 10, 2026</div>
+            <div class="timeline-title">Registration Closes</div>
+            <div class="timeline-desc">Last date to register. No late entries accepted after this deadline.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">August 14, 2026</div>
+            <div class="timeline-title">Pre-Event Workshop</div>
+            <div class="timeline-desc">Optional workshop sessions for participants. Networking, tools, and mentorship.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">August 15–16, 2026</div>
+            <div class="timeline-title">YHack '26 — Main Event</div>
+            <div class="timeline-desc">24-hour hackathon + all events. Code, build, present, and compete. Prizes
+              announced at closing ceremony.</div>
+          </div>
+        </div>
+        <div>
+          <!-- Location Card -->
+          <div class="ieee-card" style="margin-bottom: 24px;">
+            <div class="ieee-card-num">📍</div>
+            <h3 class="ieee-card-title">Venue & Location</h3>
+            <p class="ieee-card-desc">
+              KPR Institute of Engineering and Technology<br>
+              Coimbatore, Tamil Nadu, India<br><br>
+              <strong style="color: var(--cream);">Coordinates:</strong> 10.9047° N, 78.6856° E<br><br>
+              Accommodation details and travel info will be shared with registered participants. On-campus stay
+              available at subsidized rates.
+            </p>
+          </div>
+          <!-- Accommodation Info -->
+          <div class="ieee-card">
+            <div class="ieee-card-num">🏠</div>
+            <h3 class="ieee-card-title">Accommodation</h3>
+            <p class="ieee-card-desc">
+              On-campus accommodation available for outstation participants. Includes lodging, meals, and event access.
+              Total cost calculated automatically during registration based on your selections.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       DETAILS — RULES, DOMAINS, REGISTRATION INFO
+       ============================================ -->
+  <section class="section-dark" id="details" style="padding-top: 0;">
+    <div class="section-inner">
+      <div class="section-header">
+        <div>
+          <div class="section-suptitle">Everything You Need to Know</div>
+          <h2 class="section-title">DETAILS</h2>
+        </div>
+      </div>
+      <div class="details-grid">
+        <div class="detail-block" data-num="01">
+          <h3 class="detail-block-title">Who Can Participate?</h3>
+          <div class="detail-block-content">
+            <p>YHack is open to <strong>all domains</strong> — engineering, arts, science, management. No restrictions.
+            </p>
+            <ul>
+              <li>Undergraduate & Postgraduate students</li>
+              <li>Any college, any branch, any year</li>
+              <li>Teams of exactly 3 members</li>
+              <li>Cross-college teams are welcome</li>
+            </ul>
+          </div>
+        </div>
+        <div class="detail-block" data-num="02">
+          <h3 class="detail-block-title">Problem Statement Domains</h3>
+          <div class="detail-block-content">
+            <ul>
+              <li>Artificial Intelligence & Machine Learning</li>
+              <li>Web3 & Blockchain</li>
+              <li>IoT & Embedded Systems</li>
+              <li>Sustainable Technology</li>
+              <li>HealthTech & BioTech</li>
+              <li>Open Innovation (any domain)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="detail-block" data-num="03">
+          <h3 class="detail-block-title">Rules & Regulations</h3>
+          <div class="detail-block-content">
+            <ul>
+              <li>Teams must consist of exactly 3 members</li>
+              <li>All code must be written during the event</li>
+              <li>Pre-built projects are not allowed</li>
+              <li>Use of open-source libraries is permitted</li>
+              <li>Judges' decision is final and binding</li>
+              <li>Respectful conduct is mandatory</li>
+              <li>Plagiarism leads to immediate disqualification</li>
+            </ul>
+          </div>
+        </div>
+        <div class="detail-block" data-num="04">
+          <h3 class="detail-block-title">Registration Info</h3>
+          <div class="detail-block-content">
+            <ul>
+              <li>Register all 3 team members with full details</li>
+              <li>Name, Phone, Department, Year, College</li>
+              <li>Accommodation costs auto-calculated</li>
+              <li>Payment confirmation via email</li>
+              <li>WhatsApp group link provided after registration</li>
+              <li>Late registrations will NOT be accepted</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PREVIOUS EVENTS GALLERY
+       ============================================ -->
+  <section class="section-cream" id="prev-events">
+    <div class="section-inner">
+      <div class="section-header">
+        <div>
+          <div class="section-suptitle" style="color: var(--black);">Our Legacy</div>
+          <h2 class="section-title" style="color: var(--black);">PREVIOUS EVENTS</h2>
+        </div>
+      </div>
+      <div class="prev-events-grid" id="prev-events-grid">
+        <!-- Populated by JS with placeholder images -->
+      </div>
+    </div>
+  </section>
+
+  <!-- TORN EDGE -->
+  <div class="torn-edge"></div>
+
+  <!-- ============================================
+       EVENT COORDINATORS
+       ============================================ -->
+  <section class="section-dark" id="team">
+    <div class="section-inner">
+      <div class="section-header">
+        <div>
+          <div class="section-suptitle">The Minds Behind</div>
+          <h2 class="section-title">EVENT COORDINATORS</h2>
+        </div>
+      </div>
+      <div class="coordinators-grid" id="coordinators-grid">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       COUNTDOWN
+       ============================================ -->
+  <section class="section-dark" id="countdown" style="padding-top: 0;">
+    <div class="section-inner">
+      <div class="countdown-wrapper">
+        <div class="countdown-left">
+          <h3 class="countdown-slogan">THE FUTURE IS<br><span class="italic">NOT WAITING.</span></h3>
+          <div class="countdown-badge">YHACK '26</div>
+          <div class="countdown-dashes">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+        <div class="countdown-right">
+          <div class="countdown-digits">
+            <div class="countdown-unit">
+              <div class="countdown-num" id="cd-days">00</div>
+              <div class="countdown-label">Days</div>
+            </div>
+            <span class="countdown-sep">:</span>
+            <div class="countdown-unit">
+              <div class="countdown-num" id="cd-hrs">00</div>
+              <div class="countdown-label">Hrs</div>
+            </div>
+            <span class="countdown-sep">:</span>
+            <div class="countdown-unit">
+              <div class="countdown-num" id="cd-mins">00</div>
+              <div class="countdown-label">Mins</div>
+            </div>
+            <span class="countdown-sep">:</span>
+            <div class="countdown-unit">
+              <div class="countdown-num" id="cd-secs">00</div>
+              <div class="countdown-label">Secs</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer class="footer-section" id="contact">
+    <div class="footer-grid">
+      <div class="footer-logo">YH<span class="small">'26</span></div>
+      <div class="newsletter-block">
+        <div class="newsletter-title">Stay in the Loop</div>
+        <div class="newsletter-desc">Subscribe to get all the latest updates about YHack.</div>
+        <form class="newsletter-form" onsubmit="return false;">
+          <input type="email" class="newsletter-input" placeholder="Enter your email" id="email-input">
+          <button type="submit" class="newsletter-submit">↗</button>
+        </form>
+      </div>
+      <div class="social-block">
+        <div class="social-title">Follow Us</div>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24">
+              <rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="1.5" />
+              <circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.5" />
+              <circle cx="17.5" cy="6.5" r="1.5" />
+            </svg>
+          </a>
+          <a href="#" class="social-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M4 4h3v16H4zM5.5 2a1.9 1.9 0 110 3.8A1.9 1.9 0 015.5 2zM9 8h3v2.2c.5-1 1.8-2.2 3.5-2.2 3 0 3.5 2 3.5 4.5V20h-3v-6.5c0-1.5 0-3.5-2-3.5s-2.5 1.5-2.5 3.4V20H9V8z" />
+            </svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Discord">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M20.3 4.7a18.8 18.8 0 00-4.6-1.4 13.1 13.1 0 00-.6 1.2 17.4 17.4 0 00-5.2 0A13.1 13.1 0 009.3 3.3 18.8 18.8 0 004.7 4.7 19.5 19.5 0 001 17.2a18.9 18.9 0 005.7 2.8 13.5 13.5 0 001.2-1.9 12.3 12.3 0 01-1.9-.9l.5-.4a13.5 13.5 0 0011.6 0l.5.4a12.3 12.3 0 01-1.9.9 13.5 13.5 0 001.2 1.9 18.9 18.9 0 005.7-2.8A19.5 19.5 0 0020.3 4.7zM8.7 14.7a2.2 2.2 0 01-2-2.3 2.2 2.2 0 012-2.3 2.2 2.2 0 012 2.3 2.2 2.2 0 01-2 2.3zm6.6 0a2.2 2.2 0 01-2-2.3 2.2 2.2 0 012-2.3 2.2 2.2 0 012 2.3 2.2 2.2 0 01-2 2.3z" />
+            </svg>
+          </a>
+          <a href="#" class="social-link" aria-label="YouTube">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M22.5 6.4a3 3 0 00-2.1-2.1C18.9 3.8 12 3.8 12 3.8s-6.9 0-8.4.5A3 3 0 001.5 6.4 31.3 31.3 0 001 12a31.3 31.3 0 00.5 5.6 3 3 0 002.1 2.1c1.5.5 8.4.5 8.4.5s6.9 0 8.4-.5a3 3 0 002.1-2.1A31.3 31.3 0 0023 12a31.3 31.3 0 00-.5-5.6zM9.8 15.6V8.4l5.6 3.6-5.6 3.6z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 YHack. All rights reserved.</span>
+      <span>⚡ BUILT BY THE FUTURE. FOR THE FUTURE.</span>
+      <span>#YHACK26</span>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
