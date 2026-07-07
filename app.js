@@ -12,12 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const coordinators = [
     { name: 'Coordinator 1', role: 'Lead Organizer', initials: 'C1' },
     { name: 'Coordinator 2', role: 'Technical Head', initials: 'C2' },
-    { name: 'Coordinator 3', role: 'Design Lead', initials: 'C3' },
+    { name: 'Coordinator 3', role: 'Event Manager', initials: 'C3' },
     { name: 'Coordinator 4', role: 'Operations', initials: 'C4' },
-    { name: 'Coordinator 5', role: 'Marketing', initials: 'C5' },
-    { name: 'Coordinator 6', role: 'Sponsorship', initials: 'C6' },
-    { name: 'Coordinator 7', role: 'Logistics', initials: 'C7' },
-    { name: 'Coordinator 8', role: 'Volunteer Coord.', initials: 'C8' },
   ];
 
   const prevEvents = [
@@ -127,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
     tl.to('.hero-headline .line-inner', { y: 0, duration: 1, stagger: 0.12, ease: 'power4.out' });
     tl.to('.hero-subline', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, '-=0.5');
     tl.to('.hero-cta-group', { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }, '-=0.4');
-    tl.to('.coming-soon-tag', { opacity: 1, duration: 0.5, ease: 'power2.out' }, '-=0.3');
+    tl.to('.hero-stats', { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, '-=0.3');
     tl.to('.scroll-indicator', { opacity: 1, duration: 0.6, ease: 'power2.out' }, '-=0.2');
     tl.from('.hero-artwork', { scale: 1.3, opacity: 0, duration: 1.2, ease: 'power3.out' }, 0.3);
     tl.to('.geo-float', { opacity: 1, duration: 0.8, stagger: 0.1, ease: 'power2.out' }, '-=0.8');
@@ -170,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   updateCursor();
 
-  const hoverTargets = document.querySelectorAll('a, button, .event-card, .about-card, .btn-primary, .btn-secondary, .nav-cta, .perk-card, .coordinator-card, .prev-event-card');
+  const hoverTargets = document.querySelectorAll('a, button, .event-card, .about-card, .btn-primary, .btn-secondary, .nav-cta, .perk-card, .coordinator-card, .prev-event-card, .track-card, .prize-card, .faq-question, .facility-item, .special-award-chip');
   hoverTargets.forEach(el => {
     el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
     el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
@@ -211,74 +207,108 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // About section
-  gsap.from('.about-title-block', {
-    x: -60, opacity: 0, duration: 1, ease: 'power3.out',
-    scrollTrigger: { trigger: '#about', start: 'top 70%' }
-  });
+  gsap.fromTo('.about-title-block', 
+    { x: -60, opacity: 0 },
+    { x: 0, opacity: 1, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: '#about', start: 'top 70%' } }
+  );
 
-  gsap.from('.about-card', {
-    y: 60, opacity: 0, duration: 0.8, stagger: 0.15, ease: 'power3.out',
-    scrollTrigger: { trigger: '.about-cards', start: 'top 75%' }
-  });
+  gsap.fromTo('.about-card', 
+    { y: 60, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: 'power3.out', scrollTrigger: { trigger: '.about-cards', start: 'top 75%' } }
+  );
 
   // IEEE RAS cards
-  gsap.from('.ieee-card', {
-    y: 50, opacity: 0, duration: 0.8, stagger: 0.2, ease: 'power3.out',
-    scrollTrigger: { trigger: '#ieee-ras', start: 'top 70%' }
-  });
+  gsap.fromTo('.ieee-card', 
+    { y: 50, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: 'power3.out', scrollTrigger: { trigger: '#ieee-ras', start: 'top 70%' } }
+  );
 
   // Perks
-  gsap.from('.perk-card', {
-    y: 40, opacity: 0, duration: 0.6, stagger: 0.1, ease: 'power3.out',
-    scrollTrigger: { trigger: '#perks', start: 'top 75%' }
-  });
+  gsap.fromTo('.perk-card', 
+    { y: 40, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: 'power3.out', scrollTrigger: { trigger: '#perks', start: 'top 75%' } }
+  );
 
-  // Events
-  gsap.from('.event-card', {
-    y: 40, opacity: 0, duration: 0.6, stagger: 0.1, ease: 'power3.out',
-    scrollTrigger: { trigger: '.events-grid', start: 'top 80%' }
-  });
+  // Tracks
+  gsap.fromTo('.track-card', 
+    { y: 50, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: 'power3.out', scrollTrigger: { trigger: '#tracks', start: 'top 75%' } }
+  );
+
+  // Prize pool
+  gsap.fromTo('.prize-total', 
+    { scale: 0.9, opacity: 0 },
+    { scale: 1, opacity: 1, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: '#prizes', start: 'top 75%' } }
+  );
+
+  gsap.fromTo('.prize-card', 
+    { y: 40, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.6, stagger: 0.15, ease: 'power3.out', scrollTrigger: { trigger: '.prize-grid', start: 'top 80%' } }
+  );
+
+  gsap.fromTo('.special-award-chip', 
+    { y: 20, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.4, stagger: 0.08, ease: 'power3.out', scrollTrigger: { trigger: '.special-awards', start: 'top 85%' } }
+  );
 
   // Timeline
-  gsap.from('.timeline-item', {
-    x: -40, opacity: 0, duration: 0.7, stagger: 0.15, ease: 'power3.out',
-    scrollTrigger: { trigger: '.timeline', start: 'top 75%' }
-  });
+  gsap.fromTo('.timeline-item', 
+    { x: -40, opacity: 0 },
+    { x: 0, opacity: 1, duration: 0.7, stagger: 0.12, ease: 'power3.out', scrollTrigger: { trigger: '.schedule-layout', start: 'top 75%' } }
+  );
 
   // Details
-  gsap.from('.detail-block', {
-    y: 40, opacity: 0, duration: 0.7, stagger: 0.12, ease: 'power3.out',
-    scrollTrigger: { trigger: '#details', start: 'top 75%' }
-  });
+  gsap.fromTo('.detail-block', 
+    { y: 40, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.7, stagger: 0.12, ease: 'power3.out', scrollTrigger: { trigger: '#details', start: 'top 75%' } }
+  );
+
+  // Facilities
+  gsap.fromTo('.facility-item', 
+    { y: 20, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, ease: 'power3.out', scrollTrigger: { trigger: '#facilities', start: 'top 80%' } }
+  );
 
   // Previous events
-  gsap.from('.prev-event-card', {
-    y: 40, opacity: 0, duration: 0.7, stagger: 0.1, ease: 'power3.out',
-    scrollTrigger: { trigger: '#prev-events', start: 'top 75%' }
-  });
+  gsap.fromTo('.prev-event-card', 
+    { y: 40, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.7, stagger: 0.1, ease: 'power3.out', scrollTrigger: { trigger: '#prev-events', start: 'top 75%' } }
+  );
 
   // Coordinators
-  gsap.from('.coordinator-card', {
-    y: 30, opacity: 0, duration: 0.5, stagger: 0.08, ease: 'power3.out',
-    scrollTrigger: { trigger: '#team', start: 'top 75%' }
-  });
+  gsap.fromTo('.coordinator-card', 
+    { y: 30, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, ease: 'power3.out', scrollTrigger: { trigger: '#team', start: 'top 75%' } }
+  );
 
   // Countdown
-  gsap.from('.countdown-left', {
-    x: -60, opacity: 0, duration: 0.8, ease: 'power3.out',
-    scrollTrigger: { trigger: '#countdown', start: 'top 80%' }
-  });
+  gsap.fromTo('.countdown-left', 
+    { x: -60, opacity: 0 },
+    { x: 0, opacity: 1, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: '#countdown', start: 'top 80%' } }
+  );
 
-  gsap.from('.countdown-num', {
-    scale: 0.5, opacity: 0, duration: 0.6, stagger: 0.1, ease: 'back.out(1.7)',
-    scrollTrigger: { trigger: '.countdown-right', start: 'top 80%' }
-  });
+  gsap.fromTo('.countdown-num', 
+    { scale: 0.5, opacity: 0 },
+    { scale: 1, opacity: 1, duration: 0.6, stagger: 0.1, ease: 'back.out(1.7)', scrollTrigger: { trigger: '.countdown-right', start: 'top 80%' } }
+  );
+
+  // FAQ
+  gsap.fromTo('.faq-item', 
+    { y: 20, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, ease: 'power3.out', scrollTrigger: { trigger: '#faq', start: 'top 80%' } }
+  );
+
+  // Sponsors
+  gsap.fromTo('.sponsor-tier', 
+    { y: 30, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.6, stagger: 0.15, ease: 'power3.out', scrollTrigger: { trigger: '#sponsors', start: 'top 80%' } }
+  );
 
   // Footer
-  gsap.from('.footer-grid > *', {
-    y: 30, opacity: 0, duration: 0.7, stagger: 0.15, ease: 'power2.out',
-    scrollTrigger: { trigger: '.footer-section', start: 'top 85%' }
-  });
+  gsap.fromTo('.footer-grid > *', 
+    { y: 30, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.7, stagger: 0.15, ease: 'power2.out', scrollTrigger: { trigger: '.footer-section', start: 'top 85%' } }
+  );
 
   // ============================================
   // HOVER DISTORTION — ARTWORK
@@ -309,9 +339,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ============================================
-  // COUNTDOWN TIMER
+  // COUNTDOWN TIMER — Updated to Aug 7, 2026
   // ============================================
-  const targetDate = new Date('2026-08-15T09:00:00+05:30');
+  const targetDate = new Date('2026-08-07T09:00:00+05:30');
 
   function updateCountdown() {
     const diff = targetDate - new Date();
@@ -370,6 +400,51 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ============================================
+  // HAMBURGER MENU
+  // ============================================
+  const hamburger = document.getElementById('hamburger');
+  const mobileOverlay = document.getElementById('mobile-nav-overlay');
+
+  if (hamburger && mobileOverlay) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileOverlay.classList.toggle('active');
+      document.body.style.overflow = mobileOverlay.classList.contains('active') ? 'hidden' : '';
+    });
+
+    // Close on link click
+    mobileOverlay.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        mobileOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
+  // ============================================
+  // FAQ ACCORDION
+  // ============================================
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const isActive = item.classList.contains('active');
+
+      // Close all other items
+      document.querySelectorAll('.faq-item').forEach(faq => {
+        faq.classList.remove('active');
+        faq.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+
+      // Toggle current item
+      if (!isActive) {
+        item.classList.add('active');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // ============================================
   // GLITCH EFFECT ON LOGO
   // ============================================
   const logo = document.querySelector('.nav-logo');
@@ -398,11 +473,11 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ============================================
-  // TEXT SCRAMBLE ON EVENT CARDS
+  // TEXT SCRAMBLE ON TRACK CARDS & PERK TITLES
   // ============================================
   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZアイウエオカキクケコ0123456789@#$%';
 
-  document.querySelectorAll('.event-name').forEach(el => {
+  document.querySelectorAll('.track-name').forEach(el => {
     const original = el.textContent;
     el.parentElement.addEventListener('mouseenter', () => {
       let iterations = 0;
@@ -418,7 +493,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Scramble on perk titles too
   document.querySelectorAll('.perk-title').forEach(el => {
     const original = el.textContent;
     el.parentElement.addEventListener('mouseenter', () => {
