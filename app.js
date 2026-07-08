@@ -3,6 +3,8 @@
    GSAP + ScrollTrigger + Dynamic Content
    ============================================ */
 
+
+
 document.addEventListener('DOMContentLoaded', () => {
   gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -84,6 +86,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // ============================================
   // LOADING SCREEN
   // ============================================
+  document.body.style.overflow = 'hidden';
+
   const loader = document.getElementById('loader');
   const loaderLine = document.getElementById('loader-line');
   const loaderCounter = document.getElementById('loader-counter');
@@ -110,31 +114,17 @@ document.addEventListener('DOMContentLoaded', () => {
     .to(loaderChars, { y: -80, opacity: 0, duration: 0.4, stagger: 0.04, ease: 'power2.in' })
     .to([loaderLine.parentElement, loaderCounter], { opacity: 0, duration: 0.3 }, '-=0.2')
     .to(loader, {
-      yPercent: -100, duration: 0.8, ease: 'power3.inOut',
-      onComplete: () => { loader.style.display = 'none'; animateHero(); ScrollTrigger.refresh(); }
+      opacity: 0, duration: 0.6, ease: 'power2.inOut',
+      onComplete: () => {
+        loader.style.display = 'none';
+        document.body.style.overflow = '';
+        if (typeof initHeroParallax === 'function') initHeroParallax();
+        setTimeout(() => ScrollTrigger.refresh(), 50);
+        // Activate scribble line
+        const scribbleLine = document.querySelector('.scribble-line');
+        if (scribbleLine) scribbleLine.classList.add('active');
+      }
     });
-
-  // ============================================
-  // HERO ENTRANCE
-  // ============================================
-  function animateHero() {
-    const tl = gsap.timeline();
-
-    tl.to('.hero-headline .line-inner', { y: 0, duration: 1, stagger: 0.12, ease: 'power4.out' });
-    tl.to('.hero-subline', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, '-=0.5');
-    tl.to('.hero-cta-group', { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }, '-=0.4');
-    tl.to('.hero-stats', { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, '-=0.3');
-    tl.to('.scroll-indicator', { opacity: 1, duration: 0.6, ease: 'power2.out' }, '-=0.2');
-    tl.from('.hero-artwork', { scale: 1.3, opacity: 0, duration: 1.2, ease: 'power3.out' }, 0.3);
-    tl.to('.geo-float', { opacity: 1, duration: 0.8, stagger: 0.1, ease: 'power2.out' }, '-=0.8');
-    tl.to('.tech-marker', { opacity: 1, duration: 0.6, stagger: 0.1, ease: 'power2.out' }, '-=0.6');
-  }
-
-  // Scribble activation
-  setTimeout(() => {
-    const el = document.querySelector('.scribble-line');
-    if (el) el.classList.add('active');
-  }, 3800);
 
   // ============================================
   // BARCODE GENERATOR
@@ -197,118 +187,31 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ============================================
-  // SCROLL-TRIGGERED ANIMATIONS
+  // ARTWORK PARALLAX ON SCROLL
   // ============================================
+  function initHeroParallax() {
+    let mm = gsap.matchMedia();
 
-  // Artwork parallax
-  gsap.to('.hero-artwork', {
-    yPercent: 15, ease: 'none',
-    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 }
-  });
+    mm.add("(min-width: 769px)", () => {
+      gsap.fromTo('.hero-artwork-container > *',
+        { yPercent: 0 },
+        {
+          yPercent: 15, ease: 'none',
+          scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 }
+        }
+      );
+    });
 
-  // About section
-  gsap.fromTo('.about-title-block', 
-    { x: -60, opacity: 0 },
-    { x: 0, opacity: 1, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: '#about', start: 'top 70%' } }
-  );
-
-  gsap.fromTo('.about-card', 
-    { y: 60, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: 'power3.out', scrollTrigger: { trigger: '.about-cards', start: 'top 75%' } }
-  );
-
-  // IEEE RAS cards
-  gsap.fromTo('.ieee-card', 
-    { y: 50, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: 'power3.out', scrollTrigger: { trigger: '#ieee-ras', start: 'top 70%' } }
-  );
-
-  // Perks
-  gsap.fromTo('.perk-card', 
-    { y: 40, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: 'power3.out', scrollTrigger: { trigger: '#perks', start: 'top 75%' } }
-  );
-
-  // Tracks
-  gsap.fromTo('.track-card', 
-    { y: 50, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: 'power3.out', scrollTrigger: { trigger: '#tracks', start: 'top 75%' } }
-  );
-
-  // Prize pool
-  gsap.fromTo('.prize-total', 
-    { scale: 0.9, opacity: 0 },
-    { scale: 1, opacity: 1, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: '#prizes', start: 'top 75%' } }
-  );
-
-  gsap.fromTo('.prize-card', 
-    { y: 40, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.6, stagger: 0.15, ease: 'power3.out', scrollTrigger: { trigger: '.prize-grid', start: 'top 80%' } }
-  );
-
-  gsap.fromTo('.special-award-chip', 
-    { y: 20, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.4, stagger: 0.08, ease: 'power3.out', scrollTrigger: { trigger: '.special-awards', start: 'top 85%' } }
-  );
-
-  // Timeline
-  gsap.fromTo('.timeline-item', 
-    { x: -40, opacity: 0 },
-    { x: 0, opacity: 1, duration: 0.7, stagger: 0.12, ease: 'power3.out', scrollTrigger: { trigger: '.schedule-layout', start: 'top 75%' } }
-  );
-
-  // Details
-  gsap.fromTo('.detail-block', 
-    { y: 40, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.7, stagger: 0.12, ease: 'power3.out', scrollTrigger: { trigger: '#details', start: 'top 75%' } }
-  );
-
-  // Facilities
-  gsap.fromTo('.facility-item', 
-    { y: 20, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, ease: 'power3.out', scrollTrigger: { trigger: '#facilities', start: 'top 80%' } }
-  );
-
-  // Previous events
-  gsap.fromTo('.prev-event-card', 
-    { y: 40, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.7, stagger: 0.1, ease: 'power3.out', scrollTrigger: { trigger: '#prev-events', start: 'top 75%' } }
-  );
-
-  // Coordinators
-  gsap.fromTo('.coordinator-card', 
-    { y: 30, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, ease: 'power3.out', scrollTrigger: { trigger: '#team', start: 'top 75%' } }
-  );
-
-  // Countdown
-  gsap.fromTo('.countdown-left', 
-    { x: -60, opacity: 0 },
-    { x: 0, opacity: 1, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: '#countdown', start: 'top 80%' } }
-  );
-
-  gsap.fromTo('.countdown-num', 
-    { scale: 0.5, opacity: 0 },
-    { scale: 1, opacity: 1, duration: 0.6, stagger: 0.1, ease: 'back.out(1.7)', scrollTrigger: { trigger: '.countdown-right', start: 'top 80%' } }
-  );
-
-  // FAQ
-  gsap.fromTo('.faq-item', 
-    { y: 20, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, ease: 'power3.out', scrollTrigger: { trigger: '#faq', start: 'top 80%' } }
-  );
-
-  // Sponsors
-  gsap.fromTo('.sponsor-tier', 
-    { y: 30, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.6, stagger: 0.15, ease: 'power3.out', scrollTrigger: { trigger: '#sponsors', start: 'top 80%' } }
-  );
-
-  // Footer
-  gsap.fromTo('.footer-grid > *', 
-    { y: 30, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.7, stagger: 0.15, ease: 'power2.out', scrollTrigger: { trigger: '.footer-section', start: 'top 85%' } }
-  );
+    mm.add("(max-width: 768px)", () => {
+      gsap.fromTo('.hero-artwork-container > *',
+        { yPercent: 0 },
+        {
+          yPercent: 5, ease: 'none',
+          scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 }
+        }
+      );
+    });
+  }
 
   // ============================================
   // HOVER DISTORTION — ARTWORK
@@ -377,25 +280,39 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ============================================
-  // NAV SCROLL BEHAVIOR
+  // NAV SCROLL BEHAVIOR + ACTIVE LINK SCROLL SPY
   // ============================================
   let lastScroll = 0;
   const nav = document.getElementById('nav');
+  const navLinksAll = document.querySelectorAll('.nav-links a');
+  const sections = document.querySelectorAll('section[id], footer[id]');
 
   window.addEventListener('scroll', () => {
     const curr = window.scrollY;
-    if (curr > 100) {
-      nav.style.padding = '12px 40px';
-      nav.style.background = 'rgba(8,8,8,0.85)';
-      nav.style.backdropFilter = 'blur(10px)';
-      nav.style.mixBlendMode = 'normal';
+    const scrollingDown = curr > lastScroll && curr > 200;
+
+    if (curr > 80) {
+      nav.classList.add('nav-scrolled');
     } else {
-      nav.style.padding = '20px 40px';
-      nav.style.background = 'transparent';
-      nav.style.backdropFilter = 'none';
-      nav.style.mixBlendMode = 'difference';
+      nav.classList.remove('nav-scrolled');
     }
-    nav.style.transform = (curr > lastScroll && curr > 200) ? 'translateY(-100%)' : 'translateY(0)';
+
+    // Scroll spy — update active nav link
+    let currentSection = '';
+    sections.forEach(section => {
+      const top = section.offsetTop - 120;
+      if (curr >= top) {
+        currentSection = section.getAttribute('id');
+      }
+    });
+
+    navLinksAll.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + currentSection) {
+        link.classList.add('active');
+      }
+    });
+
     lastScroll = curr;
   });
 
