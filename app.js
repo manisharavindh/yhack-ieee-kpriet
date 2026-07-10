@@ -86,6 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ============================================
   // LOADING SCREEN
   // ============================================
+  document.documentElement.style.overflow = 'hidden';
   document.body.style.overflow = 'hidden';
 
   const loader = document.getElementById('loader');
@@ -117,6 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
       opacity: 0, duration: 0.6, ease: 'power2.inOut',
       onComplete: () => {
         loader.style.display = 'none';
+        document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
         if (typeof initHeroParallax === 'function') initHeroParallax();
         setTimeout(() => ScrollTrigger.refresh(), 50);
@@ -172,6 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const floatSymbols = document.querySelectorAll('.float-symbol');
 
   document.addEventListener('mousemove', (e) => {
+    if (window.innerWidth <= 768) return;
     const x = (e.clientX / window.innerWidth - 0.5) * 2;
     const y = (e.clientY / window.innerHeight - 0.5) * 2;
 
@@ -218,14 +221,18 @@ document.addEventListener('DOMContentLoaded', () => {
   // ============================================
   const artworkContainer = document.getElementById('artwork-container');
   if (artworkContainer) {
+    artworkContainer.addEventListener('mouseenter', () => {
+      if (window.innerWidth > 768) gsap.to(heroArtwork, { scale: 1.15, duration: 0.6, ease: 'power2.out' });
+    });
     artworkContainer.addEventListener('mousemove', (e) => {
+      if (window.innerWidth <= 768) return;
       const rect = artworkContainer.getBoundingClientRect();
       const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
       const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
       gsap.to(heroArtwork, { rotateY: x * 3, rotateX: -y * 3, transformPerspective: 1000, duration: 0.6, ease: 'power2.out' });
     });
     artworkContainer.addEventListener('mouseleave', () => {
-      gsap.to(heroArtwork, { rotateY: 0, rotateX: 0, duration: 0.8, ease: 'power2.out' });
+      gsap.to(heroArtwork, { rotateY: 0, rotateX: 0, scale: 1.2, duration: 0.8, ease: 'power2.out' });
     });
   }
 
@@ -267,6 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ============================================
   document.querySelectorAll('.btn-primary, .nav-cta').forEach(btn => {
     btn.addEventListener('mousemove', (e) => {
+      if (window.innerWidth <= 768) return;
       const rect = btn.getBoundingClientRect();
       gsap.to(btn, {
         x: (e.clientX - rect.left - rect.width / 2) * 0.25,
@@ -326,7 +334,9 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
       mobileOverlay.classList.toggle('active');
-      document.body.style.overflow = mobileOverlay.classList.contains('active') ? 'hidden' : '';
+      const isAct = mobileOverlay.classList.contains('active');
+      document.documentElement.style.overflow = isAct ? 'hidden' : '';
+      document.body.style.overflow = isAct ? 'hidden' : '';
     });
 
     // Close on link click
@@ -334,6 +344,7 @@ document.addEventListener('DOMContentLoaded', () => {
       link.addEventListener('click', () => {
         hamburger.classList.remove('active');
         mobileOverlay.classList.remove('active');
+        document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
       });
     });
@@ -389,42 +400,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ============================================
-  // TEXT SCRAMBLE ON TRACK CARDS & PERK TITLES
-  // ============================================
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZアイウエオカキクケコ0123456789@#$%';
-
-  document.querySelectorAll('.track-name').forEach(el => {
-    const original = el.textContent;
-    el.parentElement.addEventListener('mouseenter', () => {
-      let iterations = 0;
-      const interval = setInterval(() => {
-        el.textContent = original.split('').map((c, i) => {
-          if (i < iterations) return original[i];
-          if (c === ' ') return ' ';
-          return chars[Math.floor(Math.random() * chars.length)];
-        }).join('');
-        iterations += 0.5;
-        if (iterations >= original.length) { clearInterval(interval); el.textContent = original; }
-      }, 30);
-    });
-  });
-
-  document.querySelectorAll('.perk-title').forEach(el => {
-    const original = el.textContent;
-    el.parentElement.addEventListener('mouseenter', () => {
-      let iterations = 0;
-      const interval = setInterval(() => {
-        el.textContent = original.split('').map((c, i) => {
-          if (i < iterations) return original[i];
-          if (c === ' ') return ' ';
-          return chars[Math.floor(Math.random() * chars.length)];
-        }).join('');
-        iterations += 0.5;
-        if (iterations >= original.length) { clearInterval(interval); el.textContent = original; }
-      }, 30);
-    });
-  });
 
   // ============================================
   // FLOATING NUMBER LABELS

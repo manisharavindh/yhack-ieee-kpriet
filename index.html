@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>YHack'26</title>
   <meta name="description"
     content="YHack '26 is a National Level 24-Hour Offline Hackathon organized by IEEE & Department of Mechatronics, KPR Institute of Engineering and Technology. ₹1,00,000 Prize Pool. 7–8 August 2026.">
@@ -262,7 +262,7 @@
   <!-- ============================================
        ABOUT THE DEPARTMENT & IEEE
        ============================================ -->
-  <section class="section-dark" id="ieee-ras">
+  <!-- <section class="section-dark" id="ieee-ras">
     <div class="section-inner">
       <div class="section-header">
         <div>
@@ -291,12 +291,12 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- ============================================
        WHY PARTICIPATE (PERKS)
        ============================================ -->
-  <section class="section-dark" id="perks" style="padding-top: 0;">
+  <section class="section-dark" id="perks">
     <div class="section-inner">
       <div class="section-header">
         <div>
@@ -304,42 +304,72 @@
           <h2 class="section-title">WHAT YOU GET</h2>
         </div>
       </div>
-      <div class="perks-grid">
-        <div class="perk-card">
-          <span class="perk-icon">💰</span>
-          <div class="perk-title">₹1,00,000 Prize Pool</div>
-          <div class="perk-desc">Compete for a massive prize pool across top-3 positions and five special award
-            categories.</div>
+      <div class="perks-bento">
+        <!-- 1. Prize Pool -->
+        <div class="pb-card pb-large">
+          <div class="pb-top">
+            <span class="pb-num">01</span>
+            <span class="pb-deco">[SYS_FUND]</span>
+          </div>
+          <div class="pb-bottom">
+            <h3 class="pb-title">₹1,00,000<br>Prize Pool</h3>
+            <p class="pb-desc">Compete for a massive prize pool across top-3 positions and five special award categories.</p>
+          </div>
         </div>
-        <div class="perk-card">
-          <span class="perk-icon">📜</span>
-          <div class="perk-title">IEEE Certificate</div>
-          <div class="perk-desc">Official IEEE Participation Certificate (Hard Copy) for all registered participants
-            who attend the event.</div>
+        <!-- 2. Tracks -->
+        <div class="pb-card pb-wide">
+          <div class="pb-top">
+            <span class="pb-num">02</span>
+            <span class="pb-deco">[DOMAIN]</span>
+          </div>
+          <div class="pb-bottom">
+            <h3 class="pb-title">Hardware & Software</h3>
+            <p class="pb-desc">Choose your track — build innovative applications or functional hardware prototypes.</p>
+          </div>
         </div>
-        <div class="perk-card">
-          <span class="perk-icon">🌐</span>
-          <div class="perk-title">National Level Event</div>
-          <div class="perk-desc">A nationally recognized hackathon under the IEEE banner — compete with innovators from
-            across India.</div>
+        <!-- 3. Accommodation -->
+        <div class="pb-card pb-tall">
+          <div class="pb-top">
+            <span class="pb-num">03</span>
+            <span class="pb-deco">[BASE]</span>
+          </div>
+          <div class="pb-bottom">
+            <h3 class="pb-title">Stay & Food</h3>
+            <p class="pb-desc">Overnight accommodation, dinner, midnight refreshments, breakfast, and morning snacks.</p>
+          </div>
         </div>
-        <div class="perk-card">
-          <span class="perk-icon">🏠</span>
-          <div class="perk-title">Accommodation & Food</div>
-          <div class="perk-desc">Overnight accommodation, dinner, midnight refreshments, breakfast, and morning snacks
-            — all provided.</div>
+        <!-- 4. National Level -->
+        <div class="pb-card pb-std">
+          <div class="pb-top">
+            <span class="pb-num">04</span>
+            <span class="pb-deco">[SCALE]</span>
+          </div>
+          <div class="pb-bottom">
+            <h3 class="pb-title">National Level</h3>
+            <p class="pb-desc">Compete with innovators from across India.</p>
+          </div>
         </div>
-        <div class="perk-card">
-          <span class="perk-icon">⚡</span>
-          <div class="perk-title">Hardware & Software Tracks</div>
-          <div class="perk-desc">Choose your track — build innovative software applications or functional hardware
-            prototypes.</div>
+        <!-- 5. Internet -->
+        <div class="pb-card pb-wide">
+          <div class="pb-top">
+            <span class="pb-num">05</span>
+            <span class="pb-deco">[UPLINK]</span>
+          </div>
+          <div class="pb-bottom">
+            <h3 class="pb-title">High-Speed Wi-Fi</h3>
+            <p class="pb-desc">Seamless connectivity throughout the event. Focus on building — we handle the infra.</p>
+          </div>
         </div>
-        <div class="perk-card">
-          <span class="perk-icon">📶</span>
-          <div class="perk-title">High-Speed Internet</div>
-          <div class="perk-desc">Seamless connectivity throughout the event. Focus on building — we handle the
-            infrastructure.</div>
+        <!-- 6. Certificate -->
+        <div class="pb-card pb-std">
+          <div class="pb-top">
+            <span class="pb-num">06</span>
+            <span class="pb-deco">[RECOG]</span>
+          </div>
+          <div class="pb-bottom">
+            <h3 class="pb-title">IEEE Cert</h3>
+            <p class="pb-desc">Official Participation Certificate for all attendees.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -356,49 +386,70 @@
           <h2 class="section-title">HACKATHON TRACKS</h2>
         </div>
       </div>
-      <div class="tracks-grid">
-        <div class="track-card">
-          <div class="track-num">01</div>
-          <div class="track-icon">
-            <svg viewBox="0 0 48 48">
-              <rect x="8" y="6" width="32" height="24" rx="2" />
-              <path d="M16 34h16M24 30v4" />
-              <path d="M14 16l4 4-4 4M22 24h8" />
-            </svg>
+      <div class="tracks-bento">
+        <!-- Software Track -->
+        <div class="pb-card">
+          <div class="pb-top">
+            <div>
+              <span class="pb-num">01</span>
+              <span class="pb-deco">[TRK_SOFT]</span>
+            </div>
+            <div class="tc-icon">
+              <svg viewBox="0 0 48 48">
+                <rect x="8" y="6" width="32" height="24" rx="2" />
+                <path d="M16 34h16M24 30v4" />
+                <path d="M14 16l4 4-4 4M22 24h8" />
+              </svg>
+            </div>
           </div>
-          <h3 class="track-name">Software Track</h3>
-          <p class="track-desc">Design scalable, innovative, and technically sound software solutions addressing
-            real-world challenges.</p>
-          <div class="track-meta">
-            <span class="track-tag">Problem Statements</span>
-            <span class="track-value">Released 2 days before event</span>
-          </div>
-          <div class="track-meta">
-            <span class="track-tag">Deliverables</span>
-            <span class="track-value">Working App + GitHub Repo + Live Demo</span>
+          <div class="pb-bottom">
+            <h3 class="pb-title" style="font-size: 2.2rem;">Software Track</h3>
+            <p class="pb-desc">Design scalable, innovative, and technically sound software solutions addressing real-world challenges.</p>
+            
+            <div class="tc-specs-new">
+              <div class="tc-spec">
+                <span class="tc-tag">STATEMENTS</span>
+                <span class="tc-val">Released 2 days before event</span>
+              </div>
+              <div class="tc-spec">
+                <span class="tc-tag">DELIVERABLES</span>
+                <span class="tc-val">Working App + GitHub Repo + Live Demo</span>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="track-card">
-          <div class="track-num">02</div>
-          <div class="track-icon">
-            <svg viewBox="0 0 48 48">
-              <rect x="4" y="20" width="40" height="18" rx="2" />
-              <path d="M12 20V10h24v10" />
-              <circle cx="16" cy="29" r="3" />
-              <circle cx="32" cy="29" r="3" />
-              <path d="M22 26h4v6h-4z" />
-            </svg>
+
+        <!-- Hardware Track -->
+        <div class="pb-card">
+          <div class="pb-top">
+            <div>
+              <span class="pb-num">02</span>
+              <span class="pb-deco">[TRK_HARD]</span>
+            </div>
+            <div class="tc-icon">
+              <svg viewBox="0 0 48 48">
+                <rect x="4" y="20" width="40" height="18" rx="2" />
+                <path d="M12 20V10h24v10" />
+                <circle cx="16" cy="29" r="3" />
+                <circle cx="32" cy="29" r="3" />
+                <path d="M22 26h4v6h-4z" />
+              </svg>
+            </div>
           </div>
-          <h3 class="track-name">Hardware Track</h3>
-          <p class="track-desc">Design and develop functional hardware prototypes addressing real-world engineering
-            challenges.</p>
-          <div class="track-meta">
-            <span class="track-tag">Problem Statements</span>
-            <span class="track-value">Released 5 days before event</span>
-          </div>
-          <div class="track-meta">
-            <span class="track-tag">Deliverables</span>
-            <span class="track-value">Working Prototype + Presentation + Live Demo</span>
+          <div class="pb-bottom">
+            <h3 class="pb-title" style="font-size: 2.2rem;">Hardware Track</h3>
+            <p class="pb-desc">Design and develop functional hardware prototypes addressing real-world engineering challenges.</p>
+            
+            <div class="tc-specs-new">
+              <div class="tc-spec">
+                <span class="tc-tag">STATEMENTS</span>
+                <span class="tc-val">Released 5 days before event</span>
+              </div>
+              <div class="tc-spec">
+                <span class="tc-tag">DELIVERABLES</span>
+                <span class="tc-val">Working Prototype + Presentation + Live Demo</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

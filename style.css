@@ -141,6 +141,7 @@ button {
   justify-content: center;
   gap: 24px;
   will-change: transform;
+  touch-action: none;
 }
 
 .loader-text {
@@ -175,7 +176,7 @@ button {
 
 .loader-counter {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.8rem;
   letter-spacing: 0.2em;
   color: var(--cream-muted);
 }
@@ -225,7 +226,7 @@ button {
 }
 
 .nav-logo .year-tag {
-  font-size: 0.55rem;
+  font-size: 0.7rem;
   font-family: var(--font-mono);
   font-weight: 700;
   color: var(--red);
@@ -280,7 +281,7 @@ button {
 
 .nav-links a {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -323,7 +324,7 @@ button {
 
 .nav-cta {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -424,6 +425,7 @@ button {
   pointer-events: none;
   transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   backdrop-filter: blur(20px);
+  overscroll-behavior: none;
 }
 
 .mobile-nav-overlay.active {
@@ -493,7 +495,7 @@ button {
   align-items: center;
   gap: 10px;
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.2em;
@@ -511,7 +513,7 @@ button {
 }
 
 .hero-tag .year-badge {
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   background: var(--red);
   color: var(--cream);
   padding: 3px 10px;
@@ -609,7 +611,7 @@ button {
 
 .info-label {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--cream-muted);
@@ -719,7 +721,7 @@ button {
 
 .hero-stat-label {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   opacity: 0.9;
@@ -733,7 +735,7 @@ button {
   align-items: center;
   gap: 12px;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -785,7 +787,7 @@ button {
   align-items: center;
   gap: 12px;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -824,7 +826,7 @@ button {
   align-items: center;
   gap: 12px;
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: var(--cream-muted);
@@ -885,12 +887,8 @@ button {
   object-fit: cover;
   object-position: center;
   transform: scale(1.2);
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   filter: contrast(1.05) saturate(1.1);
-}
-
-.hero-artwork-container:hover .hero-artwork {
-  transform: scale(1.15);
+  will-change: transform;
 }
 
 .artwork-slash {
@@ -928,7 +926,7 @@ button {
 .vertical-text {
   position: absolute;
   font-family: var(--font-mono);
-  font-size: 0.55rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.35em;
   writing-mode: vertical-rl;
@@ -962,7 +960,7 @@ button {
 .coord-marker {
   position: absolute;
   font-family: var(--font-mono);
-  font-size: 0.5rem;
+  font-size: 0.65rem;
   color: var(--cream);
   opacity: 0.7;
   letter-spacing: 0.1em;
@@ -986,7 +984,7 @@ button {
 
 .tech-marker .bracket {
   font-family: var(--font-mono);
-  font-size: 0.55rem;
+  font-size: 0.7rem;
   color: var(--cream);
   opacity: 0.8;
 }
@@ -1069,7 +1067,7 @@ button {
 .num-label {
   position: absolute;
   font-family: var(--font-mono);
-  font-size: 0.5rem;
+  font-size: 0.65rem;
   color: var(--cream);
   opacity: 0.6;
   letter-spacing: 0.15em;
@@ -1246,7 +1244,7 @@ button {
 
 .section-suptitle {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   opacity: 0.7;
@@ -1255,7 +1253,7 @@ button {
 
 .section-link {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.15em;
@@ -1360,11 +1358,11 @@ button {
   display: flex;
   justify-content: space-between;
   font-family: var(--font-mono);
-  font-size: 0.55rem;
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--cream-muted);
+  color: rgba(241, 236, 226, 0.7);
   border-bottom: 1px dashed rgba(214, 17, 22, 0.3);
   padding-bottom: 8px;
   margin-bottom: 16px;
@@ -1409,9 +1407,9 @@ button {
 }
 
 .about-card .card-desc {
-  font-size: 0.7rem;
+  font-size: 0.95rem;
   line-height: 1.5;
-  color: var(--cream-muted);
+  color: rgba(241, 236, 226, 0.8);
   margin-bottom: 16px;
 }
 
@@ -1462,7 +1460,7 @@ button {
 }
 
 .card-desc {
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   line-height: 1.7;
   opacity: 0.75;
   color: var(--black);
@@ -1547,168 +1545,200 @@ button {
 /* ============================================
    EVENT PERKS (Timeline, Cash Prize, etc.)
    ============================================ */
-.perks-grid {
+/* ============================================
+   PERKS BENTO BOX
+   ============================================ */
+.perks-bento {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(200px, auto);
+  gap: 16px;
 }
 
-.perk-card {
-  border: 1px solid rgba(241, 236, 226, 0.08);
-  padding: 36px 28px;
+.pb-card {
+  background: rgba(241, 236, 226, 0.02);
+  border: 1px solid rgba(241, 236, 226, 0.1);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   position: relative;
-  transition: background 0.3s ease;
   overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.perk-card::after {
+.pb-card:hover {
+  background: rgba(241, 236, 226, 0.05);
+  border-color: rgba(241, 236, 226, 0.3);
+}
+
+.pb-large { grid-column: span 2; grid-row: span 2; background: var(--red); border-color: var(--red); }
+.pb-large:hover { background: var(--red-dark); border-color: var(--red-dark); }
+.pb-wide { grid-column: span 2; grid-row: span 1; }
+.pb-tall { grid-column: span 1; grid-row: span 2; }
+.pb-std { grid-column: span 1; grid-row: span 1; }
+
+.pb-card::after {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--red);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  top: 0; right: 0;
+  width: 0; height: 0;
+  border-style: solid;
+  border-width: 0 40px 40px 0;
+  border-color: transparent rgba(241, 236, 226, 0.05) transparent transparent;
+  transition: border-color 0.3s;
+}
+.pb-large::after {
+  border-color: transparent rgba(8, 8, 8, 0.15) transparent transparent;
+}
+.pb-card:hover::after {
+  border-color: transparent var(--red) transparent transparent;
+}
+.pb-large:hover::after {
+  border-color: transparent var(--black) transparent transparent;
 }
 
-.perk-card:hover::after {
-  transform: scaleX(1);
+.pb-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 2;
 }
 
-.perk-card:hover {
-  background: rgba(214, 17, 22, 0.04);
-}
-
-.perk-icon {
-  font-size: 2rem;
-  margin-bottom: 16px;
-  display: block;
-}
-
-.perk-title {
-  font-family: var(--font-display);
-  font-size: 0.9rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 8px;
-  color: var(--cream);
-}
-
-.perk-desc {
+.pb-num {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--red);
+}
+.pb-large .pb-num { color: var(--cream); opacity: 0.9; }
+
+.pb-deco {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  color: rgba(241, 236, 226, 0.7);
+  text-transform: uppercase;
+}
+.pb-large .pb-deco { color: var(--cream); opacity: 0.8; }
+
+.pb-bottom {
+  position: relative;
+  z-index: 2;
+}
+
+.pb-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 900;
+  text-transform: uppercase;
   color: var(--cream);
-  opacity: 0.7;
-  line-height: 1.7;
+  margin-bottom: 12px;
+  line-height: 1.1;
+}
+
+.pb-large .pb-title {
+  font-size: 3.2rem;
+  margin-bottom: 16px;
+}
+
+.pb-desc {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: rgba(241, 236, 226, 0.8);
+  line-height: 1.6;
+}
+.pb-large .pb-desc {
+  font-size: 1.05rem;
+  color: rgba(241, 236, 226, 0.95);
+  max-width: 80%;
+}
+
+@media (max-width: 1024px) {
+  .perks-bento {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pb-large, .pb-wide { grid-column: span 2; }
+  .pb-tall { grid-row: span 1; }
+  .pb-std { grid-column: span 1; }
+}
+
+@media (max-width: 600px) {
+  .perks-bento {
+    grid-template-columns: 1fr;
+  }
+  .pb-large, .pb-wide, .pb-std, .pb-tall {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  .pb-large .pb-title { font-size: 2.2rem; }
+  .pb-large .pb-desc { max-width: 100%; }
 }
 
 /* ============================================
-   HACKATHON TRACKS
+   HACKATHON TRACKS (BENTO STYLE)
    ============================================ */
-.tracks-grid {
+.tracks-bento {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
 }
 
-.track-card {
-  border: 1px solid rgba(241, 236, 226, 0.1);
-  padding: 48px 40px;
-  position: relative;
-  overflow: hidden;
-  transition: border-color 0.4s ease;
+.tc-icon {
+  margin-bottom: 0;
 }
-
-.track-card:hover {
-  border-color: var(--red);
-}
-
-.track-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--red), var(--red-glow));
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.track-card:hover::before {
-  transform: scaleX(1);
-}
-
-.track-num {
-  font-family: var(--font-display);
-  font-size: 5rem;
-  font-weight: 900;
-  color: var(--red);
-  opacity: 0.12;
-  position: absolute;
-  top: 10px;
-  right: 24px;
-  line-height: 1;
-}
-
-.track-icon {
-  margin-bottom: 24px;
-}
-
-.track-icon svg {
-  width: 48px;
-  height: 48px;
+.tc-icon svg {
+  width: 32px;
+  height: 32px;
   stroke: var(--red);
   stroke-width: 1.5;
   fill: none;
 }
 
-.track-name {
-  font-family: var(--font-display);
-  font-size: 1.8rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
-  margin-bottom: 12px;
-  color: var(--cream);
+.tc-specs-new {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-top: 1px dashed rgba(241, 236, 226, 0.15);
+  padding-top: 24px;
 }
 
-.track-desc {
-  font-size: 0.85rem;
-  line-height: 1.8;
-  color: var(--cream);
-  opacity: 0.75;
-  margin-bottom: 24px;
-}
-
-.track-meta {
+.tc-spec {
   display: flex;
   align-items: baseline;
-  gap: 12px;
-  padding: 10px 0;
-  border-top: 1px solid rgba(241, 236, 226, 0.08);
+  gap: 16px;
 }
 
-.track-tag {
+.tc-tag {
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size: 0.9rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   color: var(--red);
-  white-space: nowrap;
+  width: 140px;
   flex-shrink: 0;
 }
 
-.track-value {
+.tc-val {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
-  color: var(--cream-muted);
+  font-size: 0.85rem;
+  color: var(--cream);
+}
+
+@media (max-width: 900px) {
+  .tracks-bento {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .tc-spec {
+    flex-direction: column;
+    gap: 4px;
+  }
 }
 
 /* ============================================
@@ -1814,7 +1844,7 @@ button {
 
 .prize-title {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: var(--cream-muted);
@@ -1836,7 +1866,7 @@ button {
 
 .special-awards-title {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: var(--black);
@@ -1866,7 +1896,7 @@ button {
   background: var(--black);
   border: 1px solid rgba(214, 17, 22, 0.3);
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -1908,7 +1938,7 @@ button {
 
 .schedule-day-date {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.85rem;
   color: var(--cream-muted);
   letter-spacing: 0.1em;
 }
@@ -1965,7 +1995,7 @@ button {
 
 .timeline-time {
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--red);
   letter-spacing: 0.15em;
@@ -1975,7 +2005,7 @@ button {
 
 .timeline-date {
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--red);
   letter-spacing: 0.15em;
@@ -1992,7 +2022,7 @@ button {
 }
 
 .timeline-desc {
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   color: var(--cream);
   opacity: 0.75;
   line-height: 1.7;
@@ -2019,7 +2049,7 @@ button {
   top: -14px;
   left: 20px;
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   font-weight: 700;
   background: var(--black);
   color: var(--red);
@@ -2061,7 +2091,7 @@ button {
   left: 0;
   color: var(--red);
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.85rem;
 }
 
 .detail-highlight {
@@ -2069,7 +2099,7 @@ button {
   padding: 10px 16px;
   border: 1px solid rgba(241, 236, 226, 0.15);
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.85rem;
   color: var(--cream);
 }
 
@@ -2099,7 +2129,7 @@ button {
 .reg-fee-label {
   display: block;
   font-family: var(--font-mono);
-  font-size: 0.55rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: var(--cream-muted);
@@ -2117,7 +2147,7 @@ button {
 .reg-fee-per {
   display: block;
   font-family: var(--font-mono);
-  font-size: 0.5rem;
+  font-size: 0.65rem;
   color: var(--cream-muted);
   margin-top: 2px;
 }
@@ -2152,7 +2182,7 @@ button {
 
 .facility-name {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.85rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -2214,7 +2244,7 @@ button {
 
 .prev-event-year {
   font-family: var(--font-mono);
-  font-size: 0.55rem;
+  font-size: 0.7rem;
   color: var(--cream);
   opacity: 0.7;
 }
@@ -2292,7 +2322,7 @@ button {
 
 .coordinator-role {
   font-family: var(--font-mono);
-  font-size: 0.55rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: var(--cream);
@@ -2422,7 +2452,7 @@ button {
   }
 
   .cd-label {
-    font-size: 0.7rem;
+    font-size: 0.85rem;
     margin-bottom: 16px;
   }
 }
@@ -2490,7 +2520,7 @@ button {
 
 .faq-answer p {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   line-height: 1.8;
   color: var(--cream-muted);
 }
@@ -2517,7 +2547,7 @@ button {
 
 .sponsor-tier-label {
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: var(--red);
@@ -2585,7 +2615,7 @@ button {
 
 .footer-tech-label {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.85rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.2em;
@@ -2674,13 +2704,13 @@ button {
   flex-direction: column;
   gap: 8px;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   color: var(--black);
   font-weight: 700;
 }
 
 .footer-contact-label {
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--red);
@@ -2688,7 +2718,7 @@ button {
 
 .footer-copyright {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.85rem;
   color: rgba(8, 8, 8, 0.7);
   text-align: right;
   display: flex;
@@ -2759,9 +2789,35 @@ button {
     padding: 40px 20px 32px;
   }
 
+  .footer-bottom-brutalist {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+  }
+
   .footer-contact-info-new {
     flex-direction: column;
-    gap: 24px;
+    align-items: stretch;
+    gap: 0;
+    border: 2px solid var(--black);
+    background: rgba(8, 8, 8, 0.03);
+  }
+
+  .footer-contact-item {
+    align-items: flex-start;
+    text-align: left;
+    padding: 16px;
+    border-bottom: 2px solid var(--black);
+  }
+
+  .footer-contact-item:last-child {
+    border-bottom: none;
+  }
+
+  .footer-copyright {
+    align-items: center;
+    text-align: center;
+    padding-top: 8px;
   }
 }
 
@@ -2835,7 +2891,7 @@ button {
 
 .form-group-title .member-num {
   font-family: var(--font-mono);
-  font-size: 0.55rem;
+  font-size: 0.7rem;
   background: var(--red);
   color: var(--cream);
   padding: 4px 12px;
@@ -2860,7 +2916,7 @@ button {
 
 .form-label {
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.15em;
@@ -2872,7 +2928,7 @@ button {
 .form-textarea {
   padding: 14px 18px;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   background: rgba(241, 236, 226, 0.03);
   border: 1px solid rgba(241, 236, 226, 0.12);
   color: var(--cream);
@@ -2926,7 +2982,7 @@ button {
   align-items: center;
   gap: 10px;
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.85rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -3146,7 +3202,7 @@ button {
   .nav-accent-bar {
     padding: 0 24px;
     height: 24px;
-    font-size: 0.5rem;
+    font-size: 0.65rem;
   }
 
   .nav-accent-right {
@@ -3224,7 +3280,7 @@ button {
   .btn-primary,
   .btn-secondary {
     padding: 12px 12px;
-    font-size: 0.7rem;
+    font-size: 0.85rem;
   }
 
   .about-cards {
