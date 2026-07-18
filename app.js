@@ -86,47 +86,58 @@ document.addEventListener('DOMContentLoaded', () => {
   // ============================================
   // LOADING SCREEN
   // ============================================
-  document.documentElement.style.overflow = 'hidden';
-  document.body.style.overflow = 'hidden';
+  const DEV_SKIP_LOADER = true; // Set to true to skip loader during dev
 
   const loader = document.getElementById('loader');
-  const loaderLine = document.getElementById('loader-line');
-  const loaderCounter = document.getElementById('loader-counter');
-  const loaderText = document.getElementById('loader-text');
-  const loaderChars = loaderText.querySelectorAll('span');
+  if (DEV_SKIP_LOADER && loader) {
+    loader.style.display = 'none';
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow = '';
+    if (typeof initHeroParallax === 'function') initHeroParallax();
+    const scribbleLine = document.querySelector('.scribble-line');
+    if (scribbleLine) scribbleLine.classList.add('active');
+  } else {
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
 
-  gsap.fromTo(loaderChars,
-    { y: 60, opacity: 0, rotateX: -90 },
-    { y: 0, opacity: 1, rotateX: 0, duration: 0.6, stagger: 0.08, ease: 'back.out(1.7)' }
-  );
+    const loaderLine = document.getElementById('loader-line');
+    const loaderCounter = document.getElementById('loader-counter');
+    const loaderText = document.getElementById('loader-text');
+    const loaderChars = loaderText.querySelectorAll('span');
 
-  let counter = { val: 0 };
-  gsap.to(counter, {
-    val: 100, duration: 2.2, ease: 'power2.inOut',
-    onUpdate: () => {
-      loaderCounter.textContent = String(Math.floor(counter.val)).padStart(3, '0');
-    }
-  });
+    gsap.fromTo(loaderChars,
+      { y: 60, opacity: 0, rotateX: -90 },
+      { y: 0, opacity: 1, rotateX: 0, duration: 0.6, stagger: 0.08, ease: 'back.out(1.7)' }
+    );
 
-  gsap.to(loaderLine, { width: '100%', duration: 2.2, ease: 'power2.inOut' });
-
-  const loaderTl = gsap.timeline({ delay: 2.5 });
-  loaderTl
-    .to(loaderChars, { y: -80, opacity: 0, duration: 0.4, stagger: 0.04, ease: 'power2.in' })
-    .to([loaderLine.parentElement, loaderCounter], { opacity: 0, duration: 0.3 }, '-=0.2')
-    .to(loader, {
-      opacity: 0, duration: 0.6, ease: 'power2.inOut',
-      onComplete: () => {
-        loader.style.display = 'none';
-        document.documentElement.style.overflow = '';
-        document.body.style.overflow = '';
-        if (typeof initHeroParallax === 'function') initHeroParallax();
-        setTimeout(() => ScrollTrigger.refresh(), 50);
-        // Activate scribble line
-        const scribbleLine = document.querySelector('.scribble-line');
-        if (scribbleLine) scribbleLine.classList.add('active');
+    let counter = { val: 0 };
+    gsap.to(counter, {
+      val: 100, duration: 2.2, ease: 'power2.inOut',
+      onUpdate: () => {
+        loaderCounter.textContent = String(Math.floor(counter.val)).padStart(3, '0');
       }
     });
+
+    gsap.to(loaderLine, { width: '100%', duration: 2.2, ease: 'power2.inOut' });
+
+    const loaderTl = gsap.timeline({ delay: 2.5 });
+    loaderTl
+      .to(loaderChars, { y: -80, opacity: 0, duration: 0.4, stagger: 0.04, ease: 'power2.in' })
+      .to([loaderLine.parentElement, loaderCounter], { opacity: 0, duration: 0.3 }, '-=0.2')
+      .to(loader, {
+        opacity: 0, duration: 0.6, ease: 'power2.inOut',
+        onComplete: () => {
+          loader.style.display = 'none';
+          document.documentElement.style.overflow = '';
+          document.body.style.overflow = '';
+          if (typeof initHeroParallax === 'function') initHeroParallax();
+          setTimeout(() => ScrollTrigger.refresh(), 50);
+          // Activate scribble line
+          const scribbleLine = document.querySelector('.scribble-line');
+          if (scribbleLine) scribbleLine.classList.add('active');
+        }
+      });
+  }
 
   // ============================================
   // BARCODE GENERATOR
@@ -248,6 +259,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ============================================
+  // SCHEDULE MOBILE TABS
+  // ============================================
+  const schTabs = document.querySelectorAll('.sch-tab');
+  const schPanels = document.querySelectorAll('.sch-panel');
+  schTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      // Remove active from all tabs and panels
+      schTabs.forEach(t => t.classList.remove('active'));
+      schPanels.forEach(p => p.classList.remove('active'));
+
+      // Add active to clicked tab and corresponding panel
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.target).classList.add('active');
+    });
+  });
   // ============================================
   // COUNTDOWN TIMER — Updated to Aug 7, 2026
   // ============================================
